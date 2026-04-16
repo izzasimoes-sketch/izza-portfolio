@@ -12,19 +12,33 @@
   --paper:        #F5EFE4;
   --paper-aged:   #EAE0CC;
   --paper-dark:   #D9CDBA;
+  --paper-worn:   #C9B898;   /* old manila — Work section */
   --ink:          #1C1410;
   --ink-light:    #3A2E26;
   --sepia:        #7A6A55;
   --accent-blue:  #2B5BE0;
   --accent-warm:  #C4621A;
   --stamp-red:    #8B1A1A;
-  --dark-bg:      #181210;
-  --dark-card:    #231E19;
-  --dark-border:  #3A3028;
   --tape-color:   rgba(255, 235, 150, 0.72);
   --shadow-paper: 0 2px 12px rgba(28, 20, 16, 0.10), 0 8px 40px rgba(28, 20, 16, 0.08);
   --shadow-photo: 2px 4px 18px rgba(28, 20, 16, 0.22), 0 1px 4px rgba(28, 20, 16, 0.14);
   --r:            4px;
+}
+
+/* === CUSTOM FONTS === */
+@font-face {
+  font-family: 'YoureInvited';
+  src: url('assets/fonts/YoureInvited.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'YoureInvited';
+  src: url('assets/fonts/YoureInvitedHeavy.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* === RESET === */
@@ -107,38 +121,182 @@ img { display: block; max-width: 100%; height: auto; }
   filter: drop-shadow(0 8px 24px rgba(0,0,0,0.18));
 }
 
-/* ── Paper: starts as a tiny stub, grows on scroll ── */
+/* ── Paper: starts at carriage level, grows on scroll to reveal photos above ── */
 .paper-roll {
   position: absolute;
-  /* anchored at the platen (~56% up from bottom of typewriter image) */
-  bottom: 54%;
-  left: 13%;
-  width: 74%;
-  /* ↓ STARTS short — GSAP animates height on scroll */
-  height: 72px;
-  overflow: hidden;           /* clips content until paper is tall enough */
-  background: #FDFAF5;
+  bottom: 33%;
+  left: 14%;
+  width: 72%;
+  height: 300px;
+  overflow: hidden;
+  background: var(--paper);
   border-radius: 1px 1px 0 0;
   box-shadow: 0 -4px 20px rgba(0,0,0,0.10), inset 0 0 0 1px rgba(0,0,0,0.04);
   z-index: 3;
-  /* GSAP will animate: height → left → width → borderRadius */
+}
+
+/* Paper header stamp line */
+.paper-hero-header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px 10px;
+  border-bottom: 1px solid rgba(28,20,16,0.12);
+}
+.phr-left,
+.phr-right {
+  font-family: 'Special Elite', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--sepia);
+  white-space: nowrap;
+}
+.phr-rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(28,20,16,0.15);
+}
+
+/* Photos scattered on the paper */
+.paper-photos-area {
+  flex-shrink: 0;
+  position: relative;
+  height: 360px;
+}
+.paper-photo {
+  position: absolute;
+  overflow: hidden;
+}
+.paper-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pp-square {
+  top: 20px;
+  left: 22px;
+  width: 104px;
+  height: 118px;
+  border: 5px solid #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.14);
+  transform: rotate(-1.5deg);
+}
+.pp-oval {
+  top: 44px;
+  right: 38px;
+  width: 80px;
+  height: 104px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.14);
+  transform: rotate(2.2deg);
+}
+.pp-color {
+  top: 192px;
+  left: 40px;
+  width: 84px;
+  height: 120px;
+  border: 5px solid #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.14);
+  transform: rotate(-3.8deg);
+}
+.paper-sticky {
+  position: absolute;
+  bottom: 8px;
+  right: 32px;
+  width: 108px;
+  height: 136px;
+  background: rgba(170,170,170,0.25);
+  border-radius: 4px;
+  transform: rotate(0.2deg);
+}
+
+/* Carriage line — "old memory of new time ...." at bottom */
+.paper-carriage-line {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 16px;
+  border-top: 1px dashed rgba(28,20,16,0.18);
+  padding-top: 10px;
+}
+.carriage-left {
+  font-family: 'Special Elite', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--sepia);
+}
+.carriage-dots {
+  font-family: 'Special Elite', monospace;
+  font-size: 9px;
+  color: rgba(122,106,85,0.4);
+  letter-spacing: 2px;
 }
 
 .paper-content {
   position: relative;
-  padding: 36px 28px 20px;
+  padding: 20px 20px 16px;
   /* Content is hidden until paper grows enough */
   opacity: 0;
   transform: translateY(12px);
 }
 
+/* ── Name tape strips — coloured washi tape behind the name ── */
+.hero-name-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.name-tape {
+  position: absolute;
+  left: -14px;
+  right: -14px;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  z-index: 0;
+}
+
+/* Blue — #587AB3, covers top line of name */
+.name-tape--blue {
+  top: -4px;
+  height: 54%;
+  background: rgba(88, 122, 179, 0.26);
+  transform: rotate(-1.8deg);
+}
+
+/* Cream — #E1D6AE, middle overlap */
+.name-tape--cream {
+  top: 22%;
+  height: 56%;
+  background: rgba(225, 214, 174, 0.40);
+  transform: rotate(0.5deg);
+  left: -6px;
+  right: -18px;
+}
+
+/* Mauve — #BD98A1, covers bottom line / overlap */
+.name-tape--mauve {
+  bottom: -4px;
+  height: 52%;
+  background: rgba(189, 152, 161, 0.28);
+  transform: rotate(1.4deg);
+  left: -10px;
+  right: -6px;
+}
+
 .hero-name {
-  font-family: 'Caveat', cursive;
-  font-size: clamp(52px, 10vw, 80px);
+  font-family: 'Kalam', 'Caveat', cursive;
+  font-size: clamp(36px, 7.5vw, 64px);
   font-weight: 700;
   color: var(--ink);
-  line-height: 1;
-  margin-bottom: 8px;
+  line-height: 1.1;
+  margin-bottom: 0;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 1;           /* sits above tape strips */
 }
 
 .hero-role {
@@ -307,9 +465,7 @@ img { display: block; max-width: 100%; height: auto; }
   font-style: italic;
   font-weight: 400;
 }
-.chapter-display--light {
-  color: rgba(234,224,204,0.88);
-}
+/* .chapter-display--light removed — all chapters now on paper tones */
 
 /* ═══════════════════════════════════════════════
    NARRATIVE / TYPED TEXT
@@ -339,7 +495,7 @@ img { display: block; max-width: 100%; height: auto; }
   margin-bottom: 16px;
   margin-top: 8px;
 }
-.typed-line.italic   { font-family: 'IM Fell English', serif; font-style: italic; }
+.typed-line.italic   { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(16px, 2.4vw, 20px); }
 .typed-line em { font-style: italic; font-family: 'Cormorant Garamond', serif; }
 
 /* Typed char spans added by JS */
@@ -422,30 +578,29 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 /* ═══════════════════════════════════════════════
-   DARK SECTION — The Work
-   Dark surface, paper cards — same world, dark table
+   WORN SECTION — The Work
+   Old manila paper — same world, worn desk surface
 ════════════════════════════════════════════════ */
-.dark-section {
-  background-color: var(--ink);
+.worn-section {
+  background-color: var(--paper-worn);
   background-image: repeating-linear-gradient(
     0deg,
     transparent 0px,
     transparent 31px,
-    rgba(255,255,255,0.012) 31px,
-    rgba(255,255,255,0.012) 32px
+    rgba(28,20,16,0.045) 31px,
+    rgba(28,20,16,0.045) 32px
   );
-  color: var(--paper);
+  color: var(--ink);
 }
-.dark-section .page-texture {
-  opacity: 0.18;
-  mix-blend-mode: overlay;
-}
-.dark-section .chapter-inner {
+.worn-section .chapter-inner {
   max-width: 960px;
+}
+.worn-section .ch-line {
+  background: rgba(28,20,16,0.18);
 }
 
 .work-subtitle {
-  color: var(--paper-aged);
+  color: var(--ink-light);
   font-size: 16px;
   margin-bottom: 60px;
   opacity: 0.7;
@@ -458,7 +613,7 @@ img { display: block; max-width: 100%; height: auto; }
   gap: 28px;
 }
 
-/* Cards look like physical paper files on a dark table */
+/* Cards look like physical paper files on an old desk */
 .project-card {
   position: relative;
   background: var(--paper);
@@ -476,10 +631,10 @@ img { display: block; max-width: 100%; height: auto; }
   transition: box-shadow 0.3s ease, transform 0.25s;
   opacity: 0;
   transform: translateY(24px);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.38), 0 1px 4px rgba(0,0,0,0.22);
+  box-shadow: 0 4px 20px rgba(28,20,16,0.18), 0 1px 4px rgba(28,20,16,0.10);
 }
 .project-card:hover {
-  box-shadow: 0 8px 40px rgba(0,0,0,0.48), 0 2px 8px rgba(0,0,0,0.28);
+  box-shadow: 0 8px 32px rgba(28,20,16,0.26), 0 2px 8px rgba(28,20,16,0.14);
   transform: translateY(-3px);
 }
 
@@ -585,8 +740,8 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 .card-description {
-  font-family: 'IM Fell English', serif;
-  font-size: 15px;
+  font-family: 'Special Elite', monospace;
+  font-size: 14px;
   color: var(--ink-light);
   line-height: 1.8;
   margin-bottom: 12px;
@@ -813,9 +968,9 @@ img { display: block; max-width: 100%; height: auto; }
   margin-bottom: 12px;
 }
 .letter-sig {
-  font-family: 'Caveat', cursive;
-  font-size: 18px;
-  font-weight: 600;
+  font-family: 'YoureInvited', 'Caveat', cursive;
+  font-size: 22px;
+  font-weight: 700;
   color: var(--ink);
   margin-top: 16px;
   display: block;
@@ -956,63 +1111,12 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 /* ═══════════════════════════════════════════════
-   MARQUEE STRIPS — typewriter ribbon dividers
+   SECTION DIVIDERS — subtle paper folds between chapters
 ════════════════════════════════════════════════ */
 
-/* Default: paper-dark ribbon — stays within the paper world */
-.marquee-strip {
-  overflow: hidden;
-  background: var(--paper-dark);
-  border-top: 1px solid rgba(28,20,16,0.08);
-  border-bottom: 1px solid rgba(28,20,16,0.08);
-  padding: 12px 0;
-  position: relative;
-  z-index: 10;
-  white-space: nowrap;
-  user-select: none;
-}
-
-/* Paper marquees — between light sections */
-.marquee-strip.marquee-paper {
-  background: var(--paper-dark);
-}
-
-/* Pre-dark marquee — bridges cream → ink */
-.marquee-strip.marquee-to-dark {
-  background: linear-gradient(to bottom, var(--paper-dark) 0%, var(--ink) 100%);
-  border-top: 1px solid rgba(28,20,16,0.10);
-  border-bottom: none;
-  padding: 16px 0 20px;
-}
-.marquee-strip.marquee-to-dark .marquee-track span {
-  color: var(--paper-aged);
-}
-
-.marquee-track {
-  display: inline-flex;
-  will-change: transform;
-  animation: marqueeScroll 28s linear infinite;
-}
-.marquee-track span {
-  font-family: 'Special Elite', monospace;
-  font-size: 10px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--sepia);
-  padding-right: 56px;
-}
-
-@keyframes marqueeScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-/* Bridge: dark Work section → cream CTA */
-.section-bridge {
-  height: 72px;
-  background: linear-gradient(var(--dark-bg), var(--paper-aged));
-  position: relative;
-  z-index: 5;
+/* Each chapter section gets a soft top border as divider */
+.chapter + .chapter {
+  border-top: 1px solid rgba(28,20,16,0.07);
 }
 
 /* ── Chapter section entrance (slide up on scroll) ── */

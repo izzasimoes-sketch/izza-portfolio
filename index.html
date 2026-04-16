@@ -25,7 +25,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,300;1,400;1,600;1,700&family=Special+Elite&family=Caveat:wght@500;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,300;1,400;1,600;1,700&family=Special+Elite&family=Kalam:wght@700&family=Caveat:wght@500;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -55,28 +55,53 @@
     <div class="hero-bg"></div>
     <div class="typewriter-scene">
       <div class="paper-roll">
+
+        <!-- Paper header — top of paper stamp line -->
+        <div class="paper-hero-header">
+          <span class="phr-left">izza.simões</span>
+          <span class="phr-rule"></span>
+          <span class="phr-right">story of a designer</span>
+        </div>
+
+        <!-- Childhood photos — middle of paper, revealed as scroll grows paper -->
+        <div class="paper-photos-area">
+          <div class="paper-photo pp-square">
+            <img src="assets/hero-child-square.png" alt="Izza, criança">
+          </div>
+          <div class="paper-photo pp-oval">
+            <img src="assets/hero-child-oval.png" alt="Izza, jardim">
+          </div>
+          <div class="paper-photo pp-color">
+            <img src="assets/hero-child-color.png" alt="Izza, escola">
+          </div>
+          <div class="paper-sticky"></div>
+        </div>
+
+        <!-- Typed content — bottom of paper, at carriage level -->
         <div class="paper-content">
-          <div class="hero-name">Izza</div>
+          <div class="paper-carriage-line">
+            <span class="carriage-left">old memory of new time</span>
+            <span class="carriage-dots">........</span>
+          </div>
+          <div class="hero-name-wrap">
+            <span class="name-tape name-tape--blue"></span>
+            <span class="name-tape name-tape--cream"></span>
+            <span class="name-tape name-tape--mauve"></span>
+            <div class="hero-name">Izza Simões</div>
+          </div>
           <div class="hero-role">Design Engineer · Product Designer · AI</div>
           <div class="hero-tagline">"From the sertão of Paraíba to the whole damn planet."</div>
           <div class="hero-cursor">█</div>
         </div>
+
       </div>
-      <img src="assets/typewriter.png" alt="Pink typewriter" class="typewriter-img">
+      <img src="assets/typewriter-blue.png" alt="Blue vintage typewriter" class="typewriter-img">
     </div>
     <div class="scroll-hint">
       <span>scroll to read the story</span>
       <div class="scroll-arrow">↓</div>
     </div>
   </section>
-
-  <!-- MARQUEE: Hero → Chapter I -->
-  <div class="marquee-strip marquee-paper" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Chapter I · The Beginning · Patos-PB · Sertão da Paraíba · Brasil · 1986 · </span>
-      <span>Chapter I · The Beginning · Patos-PB · Sertão da Paraíba · Brasil · 1986 · </span>
-    </div>
-  </div>
 
   <!-- ═══════════════════════════════════════
        CHAPTER I — Origin
@@ -132,18 +157,23 @@
 
         <p class="typed-line">I learned patience before I learned to type.</p>
         <p class="typed-line indent">Turns out, that's been more useful than any software.</p>
+        <br>
+        <p class="typed-line highlight">2012.</p>
+        <p class="typed-line">Before I had a degree, I had a brand.</p>
+        <p class="typed-line"><em>Pop Arretado</em> — t-shirts, art direction, visual identity.</p>
+        <p class="typed-line indent">Founded from scratch. Built with instinct.</p>
+        <br>
+        <p class="typed-line">SEBRAE-PB recognized it as a Case of Success.</p>
+        <p class="typed-line">Universities used it in academic papers.</p>
+        <p class="typed-line indent italic">I didn't know at the time. I was just making things.</p>
+        <br>
+        <p class="typed-line highlight">2013.</p>
+        <p class="typed-line">I enrolled in Graphic Design at Estácio.</p>
+        <p class="typed-line indent">Not to start — to formalize what had already begun.</p>
       </div>
 
     </div>
   </section>
-
-  <!-- MARQUEE: Chapter I → Universe Bridge → Chapter II -->
-  <div class="marquee-strip marquee-paper" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Chapter II · The Spark · 2015 · StartPB · 2016 · Graphic Design · 2017 · Tv2U · England · Alan Boyd · </span>
-      <span>Chapter II · The Spark · 2015 · StartPB · 2016 · Graphic Design · 2017 · Tv2U · England · Alan Boyd · </span>
-    </div>
-  </div>
 
   <!-- UNIVERSE EXPANSION BRIDGE — sertão → world -->
   <div class="universe-bridge" id="universe-bridge" aria-hidden="true">
@@ -171,11 +201,9 @@
 
       <div class="narrative">
         <p class="typed-line highlight">2015.</p>
-        <p class="typed-line">I joined a program called <em>StartPB</em> —</p>
-        <p class="typed-line">and that's where I first touched the world of startups.</p>
-        <p class="typed-line indent">E-commerce was just beginning. I was learning in real time.</p>
-        <p class="typed-line">The t-shirt brand idea was already in my head.</p>
-        <p class="typed-line indent">StartPB gave it a foundation.</p>
+        <p class="typed-line">I joined <em>StartPB</em> — my first real contact</p>
+        <p class="typed-line">with the startup ecosystem.</p>
+        <p class="typed-line indent">The brand was already running. Now I had a framework to think bigger.</p>
 
         <div class="collage collage-center">
           <div class="photo-wrap" data-rotate="-2deg" data-delay="0">
@@ -185,12 +213,12 @@
         </div>
 
         <p class="typed-line highlight">2016.</p>
-        <p class="typed-line">I graduated. I opened the brand.</p>
-        <p class="typed-line indent">T-shirts. Graphic design. Real things, finally.</p>
+        <p class="typed-line">I graduated from Estácio.</p>
+        <p class="typed-line indent">The degree finally caught up with the practice.</p>
         <br>
         <p class="typed-line highlight">2017.</p>
-        <p class="typed-line">A startup called <em>Tv2U</em> brought me to England</p>
-        <p class="typed-line">for three months of full immersion.</p>
+        <p class="typed-line"><em>tv2u International.</em> UI Designer Jr.</p>
+        <p class="typed-line">They sent me to England for a full year of immersion.</p>
         <br>
         <p class="typed-line">That's where I met Alan Boyd —</p>
         <p class="typed-line indent">the man who created PowerPoint.</p>
@@ -205,33 +233,24 @@
           </div>
         </div>
 
-        <p class="typed-line">That trip taught me something important:</p>
-        <p class="typed-line indent italic">the world is much smaller than we think,</p>
-        <p class="typed-line indent italic">and much more accessible than we're told.</p>
+        <p class="typed-line">I came back as Product Owner.</p>
+        <p class="typed-line indent">Project management. Agile. Marketing strategy.</p>
+        <p class="typed-line">Different hat, same company, same hunger.</p>
         <br>
-        <p class="typed-line">I traveled. I played guitar on street corners.</p>
-        <p class="typed-line">Took courses. Crossed time zones. Made things.</p>
+        <p class="typed-line highlight">2018.</p>
+        <p class="typed-line"><em>OvermediaCast,</em> São Paulo. Product Owner.</p>
+        <p class="typed-line">Storyboard. Roteiro. Inside sales. Project management.</p>
+        <p class="typed-line indent">A different kind of product. A different kind of thinking.</p>
         <br>
-        <p class="typed-line italic">What I got in return:</p>
-        <p class="typed-line indent italic">resilience, patience, and the ability to stay calm</p>
-        <p class="typed-line indent italic">when everything is on fire.</p>
-        <br>
-        <p class="typed-line">Which, in startups, is always useful.</p>
+        <p class="typed-line">I was learning that design was never just design.</p>
+        <p class="typed-line indent italic">It was always about what happens next.</p>
       </div>
 
     </div>
   </section>
 
-  <!-- MARQUEE: Chapter II → Chapter III -->
-  <div class="marquee-strip marquee-paper" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Chapter III · Today · Design Engineer · Product Designer · AI · Startups · 2017 → Now · </span>
-      <span>Chapter III · Today · Design Engineer · Product Designer · AI · Startups · 2017 → Now · </span>
-    </div>
-  </div>
-
   <!-- ═══════════════════════════════════════
-       CHAPTER III — Today
+       CHAPTER III — The Road
   ════════════════════════════════════════ -->
   <section id="today" class="chapter paper-section">
     <div class="page-texture"></div>
@@ -240,68 +259,22 @@
       <div class="chapter-marker">
         <span class="ch-num">III</span>
         <div class="ch-line"></div>
-        <span class="ch-label">Today</span>
+        <span class="ch-label">The Road</span>
       </div>
-      <h2 class="chapter-display"><em>Today</em></h2>
+      <h2 class="chapter-display"><em>The</em><br>Road</h2>
 
       <div class="narrative">
-        <div class="collage collage-right collage-solo">
-          <div class="photo-wrap photo-large" data-rotate="-1deg" data-delay="0">
-            <div class="tape tape-top"></div>
-            <img src="assets/izza-uzu.png" alt="Izza Simões today">
-          </div>
-        </div>
-
-        <p class="typed-line">I work at the intersection of design, technology,</p>
-        <p class="typed-line indent">and artificial intelligence.</p>
+        <p class="typed-line highlight">2019.</p>
+        <p class="typed-line">I left OvermediaCast and went independent.</p>
         <br>
-        <p class="typed-line">Since 2017, I've been specialising in startups —</p>
-        <p class="typed-line">early-stage companies that need someone who can</p>
-        <p class="typed-line indent">hold the vision and build the thing at the same time.</p>
+        <p class="typed-line">Freelance designer — graphic design, UI, identity.</p>
+        <p class="typed-line">Real clients. Real deadlines. No one to hide behind.</p>
+        <p class="typed-line indent italic">Just the work, and what you make of it.</p>
         <br>
-        <p class="typed-line">I build products from zero — from the first workshop</p>
-        <p class="typed-line">to the last line of code.</p>
-        <br>
-        <p class="typed-line">I name companies. I design systems.</p>
-        <p class="typed-line">I lead technical migrations.</p>
-        <p class="typed-line">I use AI as a co-pilot, not a shortcut.</p>
-        <br>
-        <p class="typed-line">My skills go way beyond the technical.</p>
-        <p class="typed-line indent">That's exactly what makes the difference.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- MARQUEE: Chapter III → Chapter IV (Resilience) -->
-  <div class="marquee-strip marquee-paper" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Chapter IV · The Long Road · Guitar · Streets · São Paulo · London · Berlin · Time Zones · No Safety Net · Discomfort Teaches · </span>
-      <span>Chapter IV · The Long Road · Guitar · Streets · São Paulo · London · Berlin · Time Zones · No Safety Net · Discomfort Teaches · </span>
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════════
-       CHAPTER IV — Resilience / The Long Road
-  ════════════════════════════════════════ -->
-  <section id="resilience" class="chapter paper-section">
-    <div class="page-texture"></div>
-    <div class="chapter-inner">
-
-      <div class="chapter-marker">
-        <span class="ch-num">IV</span>
-        <div class="ch-line"></div>
-        <span class="ch-label">The Long Road</span>
-      </div>
-      <h2 class="chapter-display"><em>The</em><br>Long Road</h2>
-
-      <div class="narrative">
-        <p class="typed-line">There were years with no plan.</p>
-        <p class="typed-line indent">Just a bag, a guitar, and a city.</p>
-        <br>
-        <p class="typed-line">I played for strangers on street corners.</p>
-        <p class="typed-line">I moved alone. Different countries.</p>
-        <p class="typed-line indent">No safety net. No backup plan.</p>
+        <p class="typed-line">I played guitar on street corners in between.</p>
+        <p class="typed-line indent">Moved through cities. Collected perspectives.</p>
+        <p class="typed-line">The kind of patience that only comes from</p>
+        <p class="typed-line indent">having nothing but time and a sketchbook.</p>
 
         <div class="collage collage-left">
           <div class="photo-wrap" data-rotate="-6deg" data-delay="0">
@@ -312,55 +285,101 @@
           <div class="photo-wrap" data-rotate="3deg" data-delay="0.22">
             <div class="tape tape-corner"></div>
             <div class="photo-placeholder"><span class="ph-label">traveling light</span></div>
-            <div class="photo-caption">always moving · 2017–2019</div>
+            <div class="photo-caption">always moving · 2019–2021</div>
           </div>
         </div>
 
-        <p class="typed-line">Not because I had to.</p>
-        <p class="typed-line indent">Because I knew discomfort teaches.</p>
+        <p class="typed-line highlight">2021.</p>
+        <p class="typed-line"><em>Inovenow.</em> My first proper UI role inside a team.</p>
+        <p class="typed-line">Design Thinking in the morning,</p>
+        <p class="typed-line indent">prototypes by end of day.</p>
+        <p class="typed-line">I learned how a product actually ships —</p>
+        <p class="typed-line indent">and how a team breathes together.</p>
         <br>
-        <p class="typed-line italic">The person who built her own life from scratch</p>
-        <p class="typed-line indent italic">can build anything.</p>
+        <p class="typed-line highlight">2022.</p>
+        <p class="typed-line"><em>Deploy UX.</em> I joined as UX/UI Designer.</p>
+        <p class="typed-line indent">Six months later — Head of User Experience.</p>
         <br>
-        <p class="typed-line">Patience. Peace. Clarity under pressure.</p>
-        <p class="typed-line indent">These aren't soft skills.</p>
-
-        <div class="collage collage-right collage-solo">
-          <div class="photo-wrap photo-large" data-rotate="-1deg" data-delay="0">
-            <div class="tape tape-top"></div>
-            <div class="photo-placeholder photo-placeholder--large"><span class="ph-label">new city · new chapter</span></div>
-            <div class="photo-caption">every city, a new beginning</div>
-          </div>
-        </div>
-
-        <p class="typed-line indent">They're the hardest ones to learn.</p>
-        <p class="typed-line">And the most useful ones to carry.</p>
+        <p class="typed-line">That same year: <em>Studio Nave.</em></p>
+        <p class="typed-line">Independent consultant. Still running today.</p>
+        <p class="typed-line indent">Working across sectors, building the muscle of adaptation.</p>
+        <br>
+        <p class="typed-line italic">Some people need a decade to get here.</p>
+        <p class="typed-line indent italic">I was building two careers at once.</p>
       </div>
 
     </div>
   </section>
 
-  <!-- MARQUEE: Chapter IV → Chapter V (transition to dark) -->
-  <div class="marquee-strip marquee-to-dark" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Chapter V · The Work · UZU Home · Atlas Career Guide · Nestlé · Ericsson Latam · PropTech · Career · FMCG · Telecom · </span>
-      <span>Chapter V · The Work · UZU Home · Atlas Career Guide · Nestlé · Ericsson Latam · PropTech · Career · FMCG · Telecom · </span>
+  <!-- ═══════════════════════════════════════
+       CHAPTER IV — Today
+  ════════════════════════════════════════ -->
+  <section id="resilience" class="chapter paper-section">
+    <div class="page-texture"></div>
+    <div class="chapter-inner">
+
+      <div class="chapter-marker">
+        <span class="ch-num">IV</span>
+        <div class="ch-line"></div>
+        <span class="ch-label">Today</span>
+      </div>
+      <h2 class="chapter-display"><em>Today</em></h2>
+
+      <div class="narrative">
+        <p class="typed-line highlight">2022.</p>
+        <p class="typed-line">I moved to Porto.</p>
+        <p class="typed-line indent">Something clicked.</p>
+        <br>
+        <p class="typed-line highlight">2023.</p>
+        <p class="typed-line"><em>UZU Home</em> — a real estate startup</p>
+        <p class="typed-line">with a vision and no product.</p>
+        <p class="typed-line indent">No name. No design system. No CRM. No brand.</p>
+        <br>
+        <p class="typed-line italic">That was my brief on day one.</p>
+
+        <div class="collage collage-right collage-solo">
+          <div class="photo-wrap photo-large" data-rotate="-1deg" data-delay="0">
+            <div class="tape tape-top"></div>
+            <img src="assets/izza-uzu.png" alt="Izza Simões today">
+            <div class="photo-caption">UZU Home · Porto, 2024</div>
+          </div>
+        </div>
+
+        <p class="typed-line">I joined as <em>Product Designer.</em></p>
+        <p class="typed-line">Ten months later — <em>Senior Global Product Manager.</em></p>
+        <p class="typed-line indent">Nine months after that — <em>CPO.</em></p>
+        <br>
+        <p class="typed-line">Not because I asked for it.</p>
+        <p class="typed-line indent">Because the work made it obvious.</p>
+        <br>
+        <p class="typed-line">Today I work at the intersection of</p>
+        <p class="typed-line indent">design, technology, and artificial intelligence.</p>
+        <br>
+        <p class="typed-line">I build products from zero:</p>
+        <p class="typed-line">from the first workshop to the last line of code.</p>
+        <p class="typed-line">I name companies. I design systems.</p>
+        <p class="typed-line">I use AI as a co-pilot, not a shortcut.</p>
+        <br>
+        <p class="typed-line italic">The girl from the sertão never stopped learning.</p>
+        <p class="typed-line indent italic">She just learned faster than everyone expected.</p>
+      </div>
+
     </div>
-  </div>
+  </section>
 
   <!-- ═══════════════════════════════════════
        CHAPTER V — The Work
   ════════════════════════════════════════ -->
-  <section id="work" class="chapter dark-section">
+  <section id="work" class="chapter worn-section">
     <div class="page-texture"></div>
     <div class="chapter-inner">
 
-      <div class="chapter-marker light">
+      <div class="chapter-marker">
         <span class="ch-num">V</span>
         <div class="ch-line"></div>
         <span class="ch-label">The Work</span>
       </div>
-      <h2 class="chapter-display chapter-display--light">The<br><em>Work</em></h2>
+      <h2 class="chapter-display">The<br><em>Work</em></h2>
 
       <p class="work-subtitle typed-line">Four projects. Each one a different world built.</p>
 
@@ -459,9 +478,6 @@
 
     </div>
   </section>
-
-  <!-- Bridge: dark Work → cream CTA -->
-  <div class="section-bridge" aria-hidden="true"></div>
 
   <!-- ═══════════════════════════════════════
        CTA — The Envelope

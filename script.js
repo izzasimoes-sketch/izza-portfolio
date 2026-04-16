@@ -311,7 +311,10 @@ ScrollTrigger.create({
   }
 });
 
-/* ── Typewriter Text Reveal (scroll-triggered) ── */
+/* ── Typewriter Text Reveal — bidirectional:
+      scroll down → chars type in (start→end)
+      scroll up   → chars erase out (end→start, like backspace)
+════════════════════════════════════════════ */
 function initTypedLines() {
   document.querySelectorAll('.typed-line').forEach(line => {
     // Wrap chars
@@ -332,16 +335,33 @@ function initTypedLines() {
     ScrollTrigger.create({
       trigger: line,
       start: 'top 86%',
-      once: true,
+      // no once:true — bidirectional
+
       onEnter() {
+        // Scroll DOWN — type forward
+        gsap.killTweensOf(chars);
         gsap.to(chars, {
           opacity: 1,
           duration: 0,
           stagger: {
             each: 0.028,
+            from: 'start',
             onStart() { Sound.playClick(); }
           },
           onComplete() { Sound.playBell(); }
+        });
+      },
+
+      onLeaveBack() {
+        // Scroll UP — erase backward (end→start, like backspace)
+        gsap.killTweensOf(chars);
+        gsap.to(chars, {
+          opacity: 0,
+          duration: 0,
+          stagger: {
+            each: 0.018,
+            from: 'end'
+          }
         });
       }
     });
@@ -407,75 +427,90 @@ initCards();
 
 /* (hero parallax handled by ScrollTrigger pin animation above) */
 
-/* ── Envelope Animation ── */
+/* ── Envelope Animation — cinematic: envelope enters, flap opens,
+      letter rises and is readable, slides back in, flap seals, stamp thump ── */
 function initEnvelope() {
-  const scene   = document.getElementById('envelope-scene');
-  const letter  = document.getElementById('letter');
-  const flap    = document.getElementById('env-flap');
-  const stamp   = document.getElementById('env-stamp');
-  const ctaBtn  = document.getElementById('cta-btn');
+  const scene  = document.getElementById('envelope-scene');
+  const letter = document.getElementById('letter');
+  const flap   = document.getElementById('env-flap');
+  const stamp  = document.getElementById('env-stamp');
+  const ctaBtn = document.getElementById('cta-btn');
 
   if (!scene) return;
+
+  // Initial state — envelope neutral, letter hidden inside
+  gsap.set(scene,  { opacity: 0, scale: 0.88, y: 24 });
+  gsap.set(letter, { y: 80, opacity: 0, scaleY: 1 });
+  gsap.set(stamp,  { opacity: 0, scale: 1.5, rotation: 8 });
 
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: scene,
-      start: 'top 70%',
+      start: 'top 72%',
       once: true
     }
   });
 
-  // 1. Letter slides down into envelope
-  tl.fromTo(letter,
-    { y: -180, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.7, ease: 'power2.inOut' }
-  );
+  // 1 — Envelope floats in
+  tl.to(scene, {
+    opacity: 1, scale: 1, y: 0,
+    duration: 0.7, ease: 'power3.out'
+  });
 
-  // 2. Flap opens
+  // 2 — Flap opens (perspective flip)
   tl.to(flap, {
-    rotateX: -180,
-    duration: 0.5,
+    rotateX: -175,
+    duration: 0.65,
     ease: 'power2.inOut',
     transformOrigin: 'top center',
-    transformStyle: 'preserve-3d'
-  }, '+=0.1');
+  }, '+=0.25');
 
-  // 3. Letter folds and goes in (shrinks)
+  // 3 — Letter rises out of envelope, fully readable
   tl.to(letter, {
-    scaleY: 0,
-    y: 60,
-    duration: 0.45,
-    ease: 'power2.in'
-  }, '+=0.2');
-
-  // 4. Flap closes
-  tl.to(flap, {
-    rotateX: 0,
-    duration: 0.5,
-    ease: 'power2.inOut',
-    transformOrigin: 'top center'
+    y: -175, opacity: 1,
+    duration: 0.75, ease: 'power2.out',
+    onStart() { Sound.playPaper(); }
   }, '-=0.1');
 
-  // 5. Stamp appears with thump
-  tl.to(stamp, {
-    opacity: 1,
-    scale: 1,
-    rotation: -5,
-    duration: 0.25,
-    ease: 'back.out(2)',
-    onStart() { Sound.playBell(); }
-  }, '+=0.15');
+  // 4 — Letter lingers (readable pause)
+  tl.to(letter, { duration: 0.9 });
 
-  // 6. CTA button appears
+  // 5 — Letter gently glides back DOWN into envelope
+  tl.to(letter, {
+    y: 50, opacity: 0,
+    duration: 0.65, ease: 'power2.inOut',
+    onStart() { Sound.playPaper(); }
+  });
+
+  // 6 — Flap closes — sealing the letter
+  tl.to(flap, {
+    rotateX: 0,
+    duration: 0.6,
+    ease: 'power2.inOut',
+    transformOrigin: 'top center'
+  }, '-=0.2');
+
+  // 7 — Envelope seals with a tiny bounce
+  tl.to(scene, {
+    scaleY: 0.96, duration: 0.08, ease: 'power2.in'
+  }, '+=0.05');
+  tl.to(scene, {
+    scaleY: 1, duration: 0.22, ease: 'elastic.out(1.4, 0.5)'
+  });
+
+  // 8 — Stamp THUMP
+  tl.to(stamp, {
+    opacity: 1, scale: 1, rotation: -4,
+    duration: 0.22, ease: 'back.out(3)',
+    onStart() { Sound.playBell(); }
+  }, '-=0.05');
+
+  // 9 — CTA appears
   tl.to(ctaBtn, {
-    opacity: 1,
-    y: 0,
-    duration: 0.5,
-    ease: 'power2.out',
-    onStart() {
-      ctaBtn.classList.add('visible');
-    }
-  }, '+=0.2');
+    opacity: 1, y: 0,
+    duration: 0.55, ease: 'power2.out',
+    onStart() { ctaBtn.classList.add('visible'); }
+  }, '+=0.28');
 }
 
 initEnvelope();
@@ -491,9 +526,9 @@ document.querySelectorAll('.chapter-marker').forEach(marker => {
   );
 });
 
-/* ── Dark section parallax background ── */
-gsap.to('#work', {
-  backgroundPositionY: '30%',
+/* work section — subtle parallax on paper texture */
+gsap.to('#work .page-texture', {
+  yPercent: -15,
   ease: 'none',
   scrollTrigger: {
     trigger: '#work',
@@ -539,23 +574,7 @@ gsap.utils.toArray('.chapter').forEach(section => {
   );
 });
 
-/* ── Marquee strip entrances — with paper sound ── */
-gsap.utils.toArray('.marquee-strip').forEach(strip => {
-  gsap.fromTo(strip,
-    { scaleX: 0, transformOrigin: 'left center' },
-    {
-      scaleX: 1,
-      duration: 0.6,
-      ease: 'power2.inOut',
-      scrollTrigger: {
-        trigger: strip,
-        start: 'top 96%',
-        once: true,
-        onEnter() { Sound.playPaper(); }
-      }
-    }
-  );
-});
+/* marquee strips removed — one-page flow */
 
 /* ═══════════════════════════════════════════════
    UNIVERSE_EXPANSION_ZOOM
