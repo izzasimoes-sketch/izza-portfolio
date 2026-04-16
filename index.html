@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Izza Simões — Design Engineer · Product Designer</title>
+  <meta name="description" content="Design Engineer and Product Designer specializing in startups, brand, and AI-powered products. From Patos, Paraíba to the whole damn planet.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.izzasimoes.com/">
+  <meta property="og:title" content="Izza Simões — Design Engineer · Product Designer">
+  <meta property="og:description" content="Design Engineer and Product Designer specializing in startups, brand, and AI-powered products. From Patos, Paraíba to the whole damn planet.">
+  <meta property="og:image" content="https://www.izzasimoes.com/assets/og-image.png">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Izza Simões — Design Engineer · Product Designer">
+  <meta name="twitter:description" content="Design Engineer and Product Designer specializing in startups, brand, and AI-powered products. From Patos, Paraíba to the whole damn planet.">
+  <meta name="twitter:image" content="https://www.izzasimoes.com/assets/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,300;1,400;1,600;1,700&family=Special+Elite&family=Caveat:wght@500;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Fixed typewriter watermark — always present in background -->
+  <div class="typewriter-bg-fixed" aria-hidden="true"></div>
+
+  <!-- MUTE BUTTON -->
+  <button id="mute-btn" aria-label="Toggle sound" title="Toggle typewriter sound">
+    <svg id="icon-sound" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    </svg>
+    <svg id="icon-muted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+  </button>
+
+  <!-- SCROLL PROGRESS -->
+  <div id="progress-bar"></div>
+
+  <!-- ═══════════════════════════════════════
+       HERO — The Typewriter
+  ════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="typewriter-scene">
+      <div class="paper-roll">
+        <div class="paper-content">
+          <div class="hero-name">Izza</div>
+          <div class="hero-role">Design Engineer · Product Designer · AI</div>
+          <div class="hero-tagline">"From the sertão of Paraíba to the whole damn planet."</div>
+          <div class="hero-cursor">█</div>
+        </div>
+      </div>
+      <img src="assets/typewriter.png" alt="Pink typewriter" class="typewriter-img">
+    </div>
+    <div class="scroll-hint">
+      <span>scroll to read the story</span>
+      <div class="scroll-arrow">↓</div>
+    </div>
+  </section>
+
+  <!-- MARQUEE: Hero → Chapter I -->
+  <div class="marquee-strip marquee-paper" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Chapter I · The Beginning · Patos-PB · Sertão da Paraíba · Brasil · 1986 · </span>
+      <span>Chapter I · The Beginning · Patos-PB · Sertão da Paraíba · Brasil · 1986 · </span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CHAPTER I — Origin
+  ════════════════════════════════════════ -->
+  <section id="origin" class="chapter paper-section">
+    <div class="page-texture"></div>
+    <div class="chapter-inner">
+
+      <div class="chapter-marker">
+        <span class="ch-num">I</span>
+        <div class="ch-line"></div>
+        <span class="ch-label">The Beginning</span>
+      </div>
+      <h2 class="chapter-display">The<br><em>Beginning</em></h2>
+
+      <div class="narrative">
+        <p class="typed-line">There's a small city in the sertão of Paraíba, Brazil,</p>
+        <p class="typed-line">where the sun is relentless and the imagination runs free.</p>
+        <p class="typed-line">That's where I was born.</p>
+
+        <div class="collage collage-left">
+          <div class="photo-wrap" data-rotate="-5deg" data-delay="0">
+            <div class="tape tape-top"></div>
+            <img src="assets/child-3.png" alt="Izza, infância">
+          </div>
+          <div class="photo-wrap" data-rotate="3deg" data-delay="0.25">
+            <div class="tape tape-top"></div>
+            <img src="assets/child-1.png" alt="Izza, infância">
+          </div>
+        </div>
+
+        <p class="typed-line">No design school. No roadmap.</p>
+        <p class="typed-line indent">Just a child with too many ideas and not enough paper.</p>
+        <p class="typed-line">I drew on everything. I built worlds in my head.</p>
+        <p class="typed-line">I made friends everywhere — different ages, different backgrounds,</p>
+        <p class="typed-line">different realities. I didn't know it yet,</p>
+        <p class="typed-line indent">but I was already doing design.</p>
+        <br>
+        <p class="typed-line">The internet? It arrived around 2000 — dial-up.</p>
+        <p class="typed-line">You'd sit there listening to the modem connect,</p>
+        <p class="typed-line indent">hoping the line wouldn't drop before the page loaded.</p>
+
+        <div class="collage collage-right">
+          <div class="photo-wrap" data-rotate="6deg" data-delay="0">
+            <div class="tape tape-corner"></div>
+            <img src="assets/child-2.png" alt="Izza, criança">
+          </div>
+          <div class="photo-wrap" data-rotate="-3deg" data-delay="0.3">
+            <div class="tape tape-top"></div>
+            <img src="assets/child-5.png" alt="Izza, escola">
+          </div>
+        </div>
+
+        <p class="typed-line">I learned patience before I learned to type.</p>
+        <p class="typed-line indent">Turns out, that's been more useful than any software.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MARQUEE: Chapter I → Universe Bridge → Chapter II -->
+  <div class="marquee-strip marquee-paper" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Chapter II · The Spark · 2015 · StartPB · 2016 · Graphic Design · 2017 · Tv2U · England · Alan Boyd · </span>
+      <span>Chapter II · The Spark · 2015 · StartPB · 2016 · Graphic Design · 2017 · Tv2U · England · Alan Boyd · </span>
+    </div>
+  </div>
+
+  <!-- UNIVERSE EXPANSION BRIDGE — sertão → world -->
+  <div class="universe-bridge" id="universe-bridge" aria-hidden="true">
+    <div class="universe-rings">
+      <div class="u-ring u-ring-1"></div>
+      <div class="u-ring u-ring-2"></div>
+      <div class="u-ring u-ring-3"></div>
+    </div>
+    <p class="universe-text">the world opened up</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CHAPTER II — The Spark
+  ════════════════════════════════════════ -->
+  <section id="spark" class="chapter paper-section paper-aged">
+    <div class="page-texture"></div>
+    <div class="chapter-inner">
+
+      <div class="chapter-marker">
+        <span class="ch-num">II</span>
+        <div class="ch-line"></div>
+        <span class="ch-label">The Spark</span>
+      </div>
+      <h2 class="chapter-display">The<br><em>Spark</em></h2>
+
+      <div class="narrative">
+        <p class="typed-line highlight">2015.</p>
+        <p class="typed-line">I joined a program called <em>StartPB</em> —</p>
+        <p class="typed-line">and that's where I first touched the world of startups.</p>
+        <p class="typed-line indent">E-commerce was just beginning. I was learning in real time.</p>
+        <p class="typed-line">The t-shirt brand idea was already in my head.</p>
+        <p class="typed-line indent">StartPB gave it a foundation.</p>
+
+        <div class="collage collage-center">
+          <div class="photo-wrap" data-rotate="-2deg" data-delay="0">
+            <div class="tape tape-top"></div>
+            <img src="assets/child-4.png" alt="Izza escola">
+          </div>
+        </div>
+
+        <p class="typed-line highlight">2016.</p>
+        <p class="typed-line">I graduated. I opened the brand.</p>
+        <p class="typed-line indent">T-shirts. Graphic design. Real things, finally.</p>
+        <br>
+        <p class="typed-line highlight">2017.</p>
+        <p class="typed-line">A startup called <em>Tv2U</em> brought me to England</p>
+        <p class="typed-line">for three months of full immersion.</p>
+        <br>
+        <p class="typed-line">That's where I met Alan Boyd —</p>
+        <p class="typed-line indent">the man who created PowerPoint.</p>
+        <p class="typed-line">And several other pieces of software you've used your entire life.</p>
+        <p class="typed-line">We sat in the same room and talked about ideas.</p>
+
+        <div class="collage collage-left">
+          <div class="photo-wrap photo-large" data-rotate="-2deg" data-delay="0">
+            <div class="tape tape-top"></div>
+            <img src="assets/alan-boyd.png" alt="Izza and Alan Boyd — creator of PowerPoint">
+            <div class="photo-caption">with Alan Boyd, England · 2017</div>
+          </div>
+        </div>
+
+        <p class="typed-line">That trip taught me something important:</p>
+        <p class="typed-line indent italic">the world is much smaller than we think,</p>
+        <p class="typed-line indent italic">and much more accessible than we're told.</p>
+        <br>
+        <p class="typed-line">I traveled. I played guitar on street corners.</p>
+        <p class="typed-line">Took courses. Crossed time zones. Made things.</p>
+        <br>
+        <p class="typed-line italic">What I got in return:</p>
+        <p class="typed-line indent italic">resilience, patience, and the ability to stay calm</p>
+        <p class="typed-line indent italic">when everything is on fire.</p>
+        <br>
+        <p class="typed-line">Which, in startups, is always useful.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MARQUEE: Chapter II → Chapter III -->
+  <div class="marquee-strip marquee-paper" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Chapter III · Today · Design Engineer · Product Designer · AI · Startups · 2017 → Now · </span>
+      <span>Chapter III · Today · Design Engineer · Product Designer · AI · Startups · 2017 → Now · </span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CHAPTER III — Today
+  ════════════════════════════════════════ -->
+  <section id="today" class="chapter paper-section">
+    <div class="page-texture"></div>
+    <div class="chapter-inner">
+
+      <div class="chapter-marker">
+        <span class="ch-num">III</span>
+        <div class="ch-line"></div>
+        <span class="ch-label">Today</span>
+      </div>
+      <h2 class="chapter-display"><em>Today</em></h2>
+
+      <div class="narrative">
+        <div class="collage collage-right collage-solo">
+          <div class="photo-wrap photo-large" data-rotate="-1deg" data-delay="0">
+            <div class="tape tape-top"></div>
+            <img src="assets/izza-uzu.png" alt="Izza Simões today">
+          </div>
+        </div>
+
+        <p class="typed-line">I work at the intersection of design, technology,</p>
+        <p class="typed-line indent">and artificial intelligence.</p>
+        <br>
+        <p class="typed-line">Since 2017, I've been specialising in startups —</p>
+        <p class="typed-line">early-stage companies that need someone who can</p>
+        <p class="typed-line indent">hold the vision and build the thing at the same time.</p>
+        <br>
+        <p class="typed-line">I build products from zero — from the first workshop</p>
+        <p class="typed-line">to the last line of code.</p>
+        <br>
+        <p class="typed-line">I name companies. I design systems.</p>
+        <p class="typed-line">I lead technical migrations.</p>
+        <p class="typed-line">I use AI as a co-pilot, not a shortcut.</p>
+        <br>
+        <p class="typed-line">My skills go way beyond the technical.</p>
+        <p class="typed-line indent">That's exactly what makes the difference.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MARQUEE: Chapter III → Chapter IV (Resilience) -->
+  <div class="marquee-strip marquee-paper" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Chapter IV · The Long Road · Guitar · Streets · São Paulo · London · Berlin · Time Zones · No Safety Net · Discomfort Teaches · </span>
+      <span>Chapter IV · The Long Road · Guitar · Streets · São Paulo · London · Berlin · Time Zones · No Safety Net · Discomfort Teaches · </span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CHAPTER IV — Resilience / The Long Road
+  ════════════════════════════════════════ -->
+  <section id="resilience" class="chapter paper-section">
+    <div class="page-texture"></div>
+    <div class="chapter-inner">
+
+      <div class="chapter-marker">
+        <span class="ch-num">IV</span>
+        <div class="ch-line"></div>
+        <span class="ch-label">The Long Road</span>
+      </div>
+      <h2 class="chapter-display"><em>The</em><br>Long Road</h2>
+
+      <div class="narrative">
+        <p class="typed-line">There were years with no plan.</p>
+        <p class="typed-line indent">Just a bag, a guitar, and a city.</p>
+        <br>
+        <p class="typed-line">I played for strangers on street corners.</p>
+        <p class="typed-line">I moved alone. Different countries.</p>
+        <p class="typed-line indent">No safety net. No backup plan.</p>
+
+        <div class="collage collage-left">
+          <div class="photo-wrap" data-rotate="-6deg" data-delay="0">
+            <div class="tape tape-top"></div>
+            <div class="photo-placeholder"><span class="ph-label">guitar · streets</span></div>
+            <div class="photo-caption">somewhere between a bus and a stage</div>
+          </div>
+          <div class="photo-wrap" data-rotate="3deg" data-delay="0.22">
+            <div class="tape tape-corner"></div>
+            <div class="photo-placeholder"><span class="ph-label">traveling light</span></div>
+            <div class="photo-caption">always moving · 2017–2019</div>
+          </div>
+        </div>
+
+        <p class="typed-line">Not because I had to.</p>
+        <p class="typed-line indent">Because I knew discomfort teaches.</p>
+        <br>
+        <p class="typed-line italic">The person who built her own life from scratch</p>
+        <p class="typed-line indent italic">can build anything.</p>
+        <br>
+        <p class="typed-line">Patience. Peace. Clarity under pressure.</p>
+        <p class="typed-line indent">These aren't soft skills.</p>
+
+        <div class="collage collage-right collage-solo">
+          <div class="photo-wrap photo-large" data-rotate="-1deg" data-delay="0">
+            <div class="tape tape-top"></div>
+            <div class="photo-placeholder photo-placeholder--large"><span class="ph-label">new city · new chapter</span></div>
+            <div class="photo-caption">every city, a new beginning</div>
+          </div>
+        </div>
+
+        <p class="typed-line indent">They're the hardest ones to learn.</p>
+        <p class="typed-line">And the most useful ones to carry.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MARQUEE: Chapter IV → Chapter V (transition to dark) -->
+  <div class="marquee-strip marquee-to-dark" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Chapter V · The Work · UZU Home · Atlas Career Guide · Nestlé · Ericsson Latam · PropTech · Career · FMCG · Telecom · </span>
+      <span>Chapter V · The Work · UZU Home · Atlas Career Guide · Nestlé · Ericsson Latam · PropTech · Career · FMCG · Telecom · </span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CHAPTER V — The Work
+  ════════════════════════════════════════ -->
+  <section id="work" class="chapter dark-section">
+    <div class="page-texture"></div>
+    <div class="chapter-inner">
+
+      <div class="chapter-marker light">
+        <span class="ch-num">V</span>
+        <div class="ch-line"></div>
+        <span class="ch-label">The Work</span>
+      </div>
+      <h2 class="chapter-display chapter-display--light">The<br><em>Work</em></h2>
+
+      <p class="work-subtitle typed-line">Four projects. Each one a different world built.</p>
+
+      <div class="projects-grid">
+
+        <!-- UZU — featured -->
+        <article class="project-card project-featured" id="card-uzu">
+          <div class="card-tape"></div>
+          <header class="card-header">
+            <div class="card-tags">
+              <span class="tag">PropTech</span>
+              <span class="tag">Real Estate</span>
+              <span class="tag tag-accent">0 → 1</span>
+            </div>
+            <div class="card-meta-right">
+              <span class="card-location">Pompano Beach, FL · Porto</span>
+              <span class="card-year">2024 →</span>
+            </div>
+          </header>
+
+          <h3 class="card-title">UZU Home</h3>
+
+          <div class="card-stats">
+            <div class="stat">
+              <span class="stat-num">0→1</span>
+              <span class="stat-label">Built from scratch<br>no brief, no team</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">5</span>
+              <span class="stat-label">Phases of work:<br>strategy to code</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">€300k</span>
+              <span class="stat-label">First transaction<br>closed on platform</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">1</span>
+              <span class="stat-label">Person responsible<br>for all of it</span>
+            </div>
+          </div>
+
+          <p class="card-description">UZU Home's founders identified a real gap in the European real estate market: usufruct and bare ownership transactions — a niche with no dedicated digital infrastructure, no CRM, no marketplace, and no clear brand. They had vision and capital. What they didn't have was a product, an identity, or even a name.</p>
+          <p class="card-description">That's the brief I was given on day one.</p>
+
+          <div class="card-phases">
+            <div class="phase"><span class="phase-num">01</span><span class="phase-name">Market Research &amp; Strategy</span></div>
+            <div class="phase"><span class="phase-num">02</span><span class="phase-name">Brand Identity &amp; Positioning</span></div>
+            <div class="phase"><span class="phase-num">03</span><span class="phase-name">Product Design</span></div>
+            <div class="phase"><span class="phase-num">04</span><span class="phase-name">No-Code Development</span></div>
+            <div class="phase"><span class="phase-num">05</span><span class="phase-name">Technical Leadership &amp; Migration</span></div>
+          </div>
+
+          <div class="card-skills">
+            <span>Market Research</span><span>Lean Canvas</span><span>Personas</span><span>Brand Strategy</span>
+            <span>Logo Design</span><span>Brand Book</span><span>UX Research</span><span>Wireframing</span>
+            <span>UI Design</span><span>Design System</span><span>Bubble</span><span>N8N</span>
+            <span>GitHub</span><span>Claude Code</span><span>Architecture Decisions</span>
+          </div>
+        </article>
+
+        <!-- Other projects row -->
+        <div class="projects-secondary">
+
+          <article class="project-card project-secondary" id="card-atlas">
+            <div class="card-tape"></div>
+            <header class="card-header">
+              <div class="card-tags"><span class="tag">Career</span><span class="tag">Mobile</span><span class="tag">Web</span></div>
+            </header>
+            <h3 class="card-title">Atlas Career Guide</h3>
+            <p class="card-description">Product design for a career discovery platform connecting talent to opportunity — mobile app and web, end to end.</p>
+            <div class="card-placeholder-bar"></div>
+          </article>
+
+          <article class="project-card project-secondary" id="card-nestle">
+            <div class="card-tape"></div>
+            <header class="card-header">
+              <div class="card-tags"><span class="tag">FMCG</span><span class="tag">Enterprise</span></div>
+            </header>
+            <h3 class="card-title">Nestlé</h3>
+            <p class="card-description">Full case study coming soon.</p>
+            <div class="card-placeholder-bar"></div>
+          </article>
+
+          <article class="project-card project-secondary" id="card-ericsson">
+            <div class="card-tape"></div>
+            <header class="card-header">
+              <div class="card-tags"><span class="tag">Telecom</span><span class="tag">AI</span><span class="tag">Motion</span></div>
+            </header>
+            <h3 class="card-title">Ericsson Latam</h3>
+            <p class="card-description">AI-driven HR experience with motion-first UI design — redefining internal tooling for one of the world's largest telecoms.</p>
+            <div class="card-placeholder-bar"></div>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Bridge: dark Work → cream CTA -->
+  <div class="section-bridge" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════
+       CTA — The Envelope
+  ════════════════════════════════════════ -->
+  <section id="cta-section" class="chapter paper-section cta-paper">
+    <div class="page-texture"></div>
+    <div class="chapter-inner cta-inner">
+
+      <div class="closing-text">
+        <p class="typed-line">I could keep typing...</p>
+        <br>
+        <p class="typed-line indent">But some conversations are better over coffee.</p>
+      </div>
+
+      <!-- ENVELOPE SCENE -->
+      <div class="envelope-scene" id="envelope-scene">
+
+        <div class="letter" id="letter">
+          <div class="letter-inner">
+            <p class="letter-greeting">Hello,</p>
+            <p class="letter-body">I'm Izza — Design Engineer,<br>Product Designer, and the person<br>who builds what others only imagine.</p>
+            <p class="letter-body">I'd love to tell you more.</p>
+            <p class="letter-sig">— Izza Simões<br><span class="letter-city">Patos, PB → The whole planet</span></p>
+          </div>
+        </div>
+
+        <div class="envelope" id="envelope">
+          <div class="env-back"></div>
+          <div class="env-flap" id="env-flap"></div>
+          <div class="env-front">
+            <div class="env-stamp" id="env-stamp">
+              <div class="stamp-border">
+                <div class="stamp-inner">
+                  <div class="stamp-text">IS</div>
+                  <div class="stamp-year">2025</div>
+                </div>
+              </div>
+            </div>
+            <div class="env-address">
+              <span>izzasimoes.com</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <a href="https://calendly.com/izzasimoescalendar/60min"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="cta-btn"
+         id="cta-btn">
+        Let's have a coffee ☕
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <span class="footer-sig">Izza</span>
+      <span class="footer-sep">·</span>
+      <span>Design Engineer &amp; Product Designer</span>
+      <span class="footer-sep">·</span>
+      <a href="https://calendly.com/izzasimoescalendar/60min" target="_blank">Let's talk</a>
+    </div>
+  </footer>
+
+  <!-- Lenis smooth scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <!-- GSAP via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
