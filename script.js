@@ -5,11 +5,11 @@
 
 /* ── Lenis smooth scroll — silencio-style buttery scrolling ── */
 const lenis = new Lenis({
-  duration: 1.3,
+  duration: 0.9,
   easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   smoothWheel: true,
-  wheelMultiplier: 0.9,
-  touchMultiplier: 1.8,
+  wheelMultiplier: 1.0,
+  touchMultiplier: 1.4,
   autoRaf: false, // We'll drive it via GSAP ticker
 });
 
@@ -218,10 +218,9 @@ const VH = window.innerHeight;
 
 /* ── Phase 1: typewriter types content on load ── */
 function typeHeroContent() {
-  const name    = document.querySelector('.hero-name');
-  const role    = document.querySelector('.hero-role');
-  const tagline = document.querySelector('.hero-tagline');
-  const cursor  = document.querySelector('.hero-cursor');
+  const name    = document.querySelector('.script-name');
+  const role    = document.querySelector('.script-sub');
+  const tagline = document.querySelector('.script-tagline');
 
   function wrapChars(el) {
     el.innerHTML = el.innerHTML.replace(
@@ -239,25 +238,24 @@ function typeHeroContent() {
   // Type name
   tl.to(name.querySelectorAll('.hchar'), {
     opacity: 1, duration: 0,
-    stagger: { each: 0.09, onStart() { Sound.init(); Sound.playClick(); } }
+    stagger: { each: 0.07, onStart() { Sound.init(); Sound.playClick(); } }
   });
   tl.add(() => Sound.playClick(true), '+=0.05');
 
   // Type role
   tl.to(role.querySelectorAll('.hchar'), {
     opacity: 1, duration: 0,
-    stagger: { each: 0.036, onStart() { Sound.playClick(); } }
+    stagger: { each: 0.028, onStart() { Sound.playClick(); } }
   }, '+=0.2');
   tl.add(() => Sound.playBell(), '+=0.06');
 
   // Type tagline
   tl.to(tagline.querySelectorAll('.hchar'), {
     opacity: 1, duration: 0,
-    stagger: { each: 0.03, onStart() { Sound.playClick(); } }
+    stagger: { each: 0.025, onStart() { Sound.playClick(); } }
   }, '+=0.3');
   tl.add(() => Sound.playBell(), '+=0.1');
 
-  tl.to(cursor, { opacity: 1, duration: 0 });
   tl.to('.scroll-hint', { opacity: 1, duration: 0.5 }, '+=0.7');
 }
 
@@ -304,7 +302,7 @@ ScrollTrigger.create({
   pinSpacing: true,
   start: 'top top',
   end: '+=230%',
-  scrub: 0.8,
+  scrub: 0.4,
   animation: paperTl,
   onLeave() {
     gsap.to('.scroll-hint', { opacity: 0, duration: 0.15 });
