@@ -301,8 +301,8 @@ ScrollTrigger.create({
   pin: true,
   pinSpacing: true,
   start: 'top top',
-  end: '+=230%',
-  scrub: 0.4,
+  end: '+=130%',
+  scrub: 0.3,
   animation: paperTl,
   onLeave() {
     gsap.to('.scroll-hint', { opacity: 0, duration: 0.15 });
