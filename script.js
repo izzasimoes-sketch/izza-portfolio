@@ -221,6 +221,7 @@ function typeHeroContent() {
   const name    = document.querySelector('.script-name');
   const role    = document.querySelector('.script-sub');
   const tagline = document.querySelector('.script-tagline');
+  gsap.set('.paper-content', { opacity: 0, y: 8 });
 
   function wrapChars(el) {
     el.innerHTML = el.innerHTML.replace(
@@ -256,7 +257,9 @@ function typeHeroContent() {
   }, '+=0.3');
   tl.add(() => Sound.playBell(), '+=0.1');
 
-  tl.to('.scroll-hint', { opacity: 1, duration: 0.5 }, '+=0.7');
+  tl.add(() => {
+    document.querySelector('.paper-scroll-hint')?.classList.add('visible');
+  }, '+=0.7');
 }
 
 typeHeroContent();
@@ -279,39 +282,25 @@ paperTl.to('.typewriter-img', {
   duration: 0.3
 }, 0.1);
 
-// C — Paper expands horizontally to fill full width
+// C — Paper expands to full width + fills hero height
 paperTl.to('.paper-roll', {
   width: '100%',
   left: '0%',
+  height: VH * 2,
   borderRadius: 0,
   ease: 'power2.inOut',
-  duration: 0.22
-}, 0.62);
+  duration: 0.3
+}, 0.58);
 
-// D — Snap to full viewport coverage
-paperTl.to('.paper-roll', {
-  bottom: '0%',
-  height: '100%',
-  ease: 'none',
-  duration: 0.18
-}, 0.82);
-
-ScrollTrigger.create({
-  trigger: '#hero',
-  pin: true,
-  pinSpacing: true,
-  anticipatePin: 1,
-  start: 'top top',
-  end: '+=70%',
-  scrub: 1,
-  animation: paperTl,
-  onLeave() {
-    gsap.to('.scroll-hint', { opacity: 0, duration: 0.15 });
-  }
-});
-
-/* Re-sync Lenis scroll limit every time ScrollTrigger recalculates spacers */
-ScrollTrigger.addEventListener('refresh', () => lenis.resize());
+/* ── First-scroll: play paper fill animation once, no dead space ── */
+let _heroFired = false;
+function triggerHeroExit() {
+  if (_heroFired) return;
+  _heroFired = true;
+  document.querySelector('.paper-scroll-hint')?.classList.remove('visible');
+  paperTl.duration(0.75).play();
+}
+lenis.on('scroll', ({ scroll }) => { if (scroll > 6) triggerHeroExit(); });
 
 /* ── Typewriter Text Reveal — bidirectional:
       scroll down → chars type in (start→end)
