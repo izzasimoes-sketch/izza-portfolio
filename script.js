@@ -302,7 +302,7 @@ ScrollTrigger.create({
   pinSpacing: true,
   anticipatePin: 1,
   start: 'top top',
-  end: '+=130%',
+  end: '+=70%',
   scrub: 1,
   animation: paperTl,
   onLeave() {
