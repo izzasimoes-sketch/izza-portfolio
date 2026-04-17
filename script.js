@@ -300,14 +300,18 @@ ScrollTrigger.create({
   trigger: '#hero',
   pin: true,
   pinSpacing: true,
+  anticipatePin: 1,
   start: 'top top',
   end: '+=130%',
-  scrub: 0.3,
+  scrub: 1,
   animation: paperTl,
   onLeave() {
     gsap.to('.scroll-hint', { opacity: 0, duration: 0.15 });
   }
 });
+
+/* Re-sync Lenis scroll limit every time ScrollTrigger recalculates spacers */
+ScrollTrigger.addEventListener('refresh', () => lenis.resize());
 
 /* ── Typewriter Text Reveal — bidirectional:
       scroll down → chars type in (start→end)
@@ -544,14 +548,20 @@ lenis.on('scroll', ({ scroll, limit }) => {
 gsap.ticker.add((time) => { lenis.raf(time * 1000); });
 gsap.ticker.lagSmoothing(0);
 
-/* ── Refresh ScrollTrigger after fonts load (prevents misaligned triggers) ── */
-document.fonts.ready.then(() => { ScrollTrigger.refresh(); });
+/* ── Refresh ScrollTrigger after fonts load — then re-sync Lenis limit ── */
+document.fonts.ready.then(() => {
+  ScrollTrigger.refresh();
+  lenis.resize();
+});
 
-/* ── Refresh ScrollTrigger on resize (mobile rotation / window resize) ── */
+/* ── Refresh ScrollTrigger on resize — re-sync Lenis limit too ── */
 let _resizeTimer;
 window.addEventListener('resize', () => {
   clearTimeout(_resizeTimer);
-  _resizeTimer = setTimeout(() => { ScrollTrigger.refresh(); }, 250);
+  _resizeTimer = setTimeout(() => {
+    ScrollTrigger.refresh();
+    lenis.resize();
+  }, 250);
 }, { passive: true });
 
 /* ── Chapter section entrances — silencio-style panel slide ── */
