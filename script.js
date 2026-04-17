@@ -271,13 +271,13 @@ paperTl.to('.paper-roll', {
   duration: 0.6
 });
 
-// B — Typewriter slides off bottom
+// B — Typewriter fades out early (before paper covers it)
 paperTl.to('.typewriter-img', {
   yPercent: 85,
   opacity: 0,
   ease: 'power1.in',
-  duration: 0.35
-}, 0.42);
+  duration: 0.3
+}, 0.1);
 
 // C — Paper expands horizontally to fill full width
 paperTl.to('.paper-roll', {
